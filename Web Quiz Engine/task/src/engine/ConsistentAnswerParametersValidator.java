@@ -15,6 +15,11 @@ public class ConsistentAnswerParametersValidator
     public boolean isValid(Quiz value, ConstraintValidatorContext context) {
         Integer[] answer = value.answers();
         String[] options = value.getOptions();
+        if (answer == null) {
+            return true;
+        } else if (options == null) {
+            return false;
+        }
         if (answer.length > options.length) {
             return false;
         } else if (answer.length == 0) {
