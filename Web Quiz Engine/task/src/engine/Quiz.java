@@ -1,23 +1,20 @@
 package engine;
 
 
-import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
 
-@ConsistentAnswerParameters//(options = "options", answer = "answer")
+@ConsistentAnswerParameters
+@Entity
 public class Quiz {
 
-    private int id;
+    @Id
+    private Long id;
     @NotBlank(message = "Title of the quiz is not specified!")
     private String title;
     @NotBlank(message = "Text of the quiz is not specified!")
@@ -37,11 +34,11 @@ public class Quiz {
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
